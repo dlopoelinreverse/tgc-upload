@@ -1,0 +1,22 @@
+lockfileVersion: 5.4
+
+specifiers:
+  bun-types: ^1.0.7
+  hono: ^3.10.2
+
+dependencies:
+  hono: 3.10.3
+
+devDependencies:
+  bun-types: 1.0.14
+
+packages:
+
+  /bun-types/1.0.14:
+    resolution: {integrity: sha512-hLVfM2fk8xSJeobfuPGilfvxM5gLtEy1bn7RJhrtw3u4OaC0kieXKYFFTVHU8jZ3hj8YyPLIFClIUodkFSrMBQ==}
+    dev: true
+
+  /hono/3.10.3:
+    resolution: {integrity: sha512-44YzAp+rydwGWqW+VRivuOWpGWug8zCSy1Gd6gBLAlclIVlPjZAYXfSNqlhSIvd6ZyseM4aP9SDDNmwXceIy+A==}
+    engines: {node: '>=16.0.0'}
+    dev: false

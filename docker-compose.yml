@@ -1,0 +1,37 @@
+services:
+  db:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d postgres -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    depends_on:
+      db:
+        condition: service_healthy
+
+    build: backend
+    ports:
+      - 4001:4001
+    volumes:
+      - ./backend/src:/app/src
+
+  frontend:
+    build: frontend
+    environment:
+      - "NEXT_WEBPACK_USEPOLLING=1"
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend/src:/app/src
+
+  file-upload-service:
+    build: file-upload-service
+    ports:
+      - 8000:8000
+    volumes:
+      - ./file-upload-service/src:/app/src
